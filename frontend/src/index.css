@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme{
+  --font-display:"Poppins","sans-serif";
+  --breakpoint-3xl:1920px;
+  --color-primary:#1368EC;
+}
+@layer base {
+  html {
+    font-family: var(--font-display);
+  }
+}
+
+body {
+  background-color: #fcfbfc;
+  overflow-x: hidden;
+  @apply dark:bg-gray-900 dark:text-gray-100;
+}
+
+.input-box {
+  @apply w-full flex justify-between gap-3 text-sm text-black bg-slate-100/50 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none 
+         dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200;
+}
+
+.btn-primary {
+  @apply w-full text-sm font-medium text-white bg-primary shadow-lg shadow-purple-600/5 p-[10px] rounded-md my-1 hover:bg-blue-500 cursor-pointer
+         dark:shadow-purple-900/10 dark:hover:bg-blue-600;
+}
+
+.card {
+  @apply bg-white p-6 rounded-2xl shadow-md shadow-gray-100 border border-gray-200/50
+         dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/20;
+}
+
+.card-btn {
+  @apply flex items-center gap-3 text-[12px] font-medium text-gray-700 hover:text-primary bg-gray-50 hover:bg-blue-50 px-4 py-1.5 rounded-lg border border-gray-200/50 cursor-pointer
+         dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-blue-400;
+}
+
+.form-card {
+  @apply bg-white p-6 rounded-lg shadow-md shadow-gray-100 border dark:bg-teal-950 dark:text-gray-50 border-gray-200/50
+         dark:border-teal-900;
+}
+
+.form-input {
+  @apply w-full text-sm text-black outline-none bg-white border border-slate-100 px-2.5 py-3 rounded-md mt-2 placeholder:text-gray-500
+         dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-400;
+}
+
+.card-btn-fill {
+  @apply flex items-center gap-3 text-[12px] font-medium text-white hover:text-primary bg-primary hover:bg-blue-500 px-4 py-1.5 rounded-lg border border-primary cursor-pointer
+         dark:hover:bg-blue-600 dark:border-blue-700;
+}
+
+.add-btn {
+  @apply w-full flex items-center justify-center gap-1.5 text-xs md:text-sm font-medium text-primary whitespace-nowrap bg-blue-50 border border-blue-100 rounded-lg px-4 py-2 cursor-pointer
+         dark:bg-blue-900/30 dark:border-blue-800 dark:text-blue-300;
+}
+
+.download-btn {
+  @apply items-center gap-3 text-xs md:text-[13px] text-lime-900 bg-lime-100 px-2 md:px-3 py-2 rounded border border-lime-200 hover:border-lime-400 cursor-pointer
+         dark:bg-lime-900/30 dark:border-lime-800 dark:text-lime-200 dark:hover:border-lime-600;
+}
+
+.user-card {
+  @apply bg-white p-4 rounded-xl shadow-md shadow-gray-300 border border-gray-100
+         dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30;
+}
+/* Light Mode (Default) */
+.lightmode {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #2563eb;
+  --secondary-color: #f3f4f6;
+  --border-color: #e5e7eb;
+  --card-bg: #f9fafb;
+  --chart-bg: #ffffff;
+  --chart-grid: #e5e7eb;
+  --chart-tooltip-bg: rgba(255, 255, 255, 0.9);
+  --chart-tooltip-border: #e5e7eb;
+  --chart-tooltip-text: #333333;
+  --chart-legend-text: #666666;
+}
+
+/* Dark Mode */
+.darkmode {
+  --bg-color: #1a1a1a;
+  --text-color: #e5e7eb;
+  --primary-color: #3b82f6;
+  --secondary-color: #2d2d2d;
+  --border-color: #444444;
+  --card-bg: #2d2d2d;
+  --chart-bg: #1a1a1a;
+  --chart-grid: #444444;
+  --chart-tooltip-bg: rgba(45, 45, 45, 0.9);
+  --chart-tooltip-border: #555555;
+  --chart-tooltip-text: #e5e7eb;
+  --chart-legend-text: #aaaaaa;
+}
+
+/* Recharts Specific Styling */
+.recharts-wrapper,
+.recharts-surface {
+  background-color: var(--chart-bg) !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--chart-grid) !important;
+  opacity: 0.3 !important;
+}
+
+.recharts-tooltip-wrapper {
+  background-color: var(--chart-tooltip-bg) !important;
+  border: 1px solid var(--chart-tooltip-border) !important;
+  color: var(--chart-tooltip-text) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.recharts-legend-item-text {
+  fill: var(--chart-legend-text) !important;
+  color: var(--chart-legend-text) !important;
+}
+
+.recharts-text {
+  fill: var(--text-color) !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-color) !important;
+}
+
+.recharts-reference-line line {
+  stroke: var(--primary-color) !important;
+}
+
+.recharts-line .recharts-curve {
+  stroke: var(--primary-color) !important;
+}
+
+.recharts-bar-rectangle {
+  fill: var(--primary-color) !important;
+}
+
+/* Bar Chart Value Labels */
+.recharts-bar .recharts-bar-rectangle,
+.recharts-bar .recharts-label {
+  fill: var(--text-color) !important;
+}
+
+.recharts-bar .recharts-bar-label {
+  fill: var(--text-color) !important;
+  font-size: 12px !important;
+}
+
+/* Pie Chart Labels */
+.recharts-pie .recharts-pie-label-text {
+  fill: var(--text-color) !important;
+}
+
+/* Radial Bar Chart Labels */
+.recharts-radial-bar .recharts-radial-bar-label {
+  fill: var(--text-color) !important;
+}
+
+/* Other common elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+
+
+
+
+
