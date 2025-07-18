@@ -11,10 +11,22 @@ const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 
+const allowedOrigins = [
+    "https://task-manager-7ga5.vercel.app",
+    // Add more allowed frontend URLs here as needed
+];
+
 // Middleware to handle CORS
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || "https://task-manager-7ga5.vercel.app",
+        origin: (origin, callback) => {
+            // Allow requests with no origin (like mobile apps or curl)
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
         credentials: true,
